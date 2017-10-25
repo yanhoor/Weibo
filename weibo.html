@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>腾讯微博</title>
+	<link rel="stylesheet" href="weibo.css">
+</head>
+<body>
+	<div id="weibo">
+		<form >
+			<h2>来，说说你在做什么，想什么</h2>
+			<div>
+				<input type="text" name="username" id="username" value="">
+				<p id="faces">
+					<img src="images/1.jpg" class="current">
+					<img src="images/2.jpg">
+					<img src="images/3.jpg">
+					<img src="images/4.jpg">
+					<img src="images/5.jpg">
+					<img src="images/6.jpg">
+					<img src="images/7.jpg">
+					<img src="images/8.jpg">
+				</p>
+			</div>
+			<div><textarea id="contentBox"></textarea></div>
+			<div class="tr">
+				<p>
+					<span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+					<input type="button" name="send" id="sendBtn" value="" title="快捷键 Ctrl+Enter">
+				</p>
+			</div>
+		</form>
+		<div class="list">
+			<h3><span>大家在说</span></h3>
+			<ul id="contentUl">
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">新增删除广播功能</div>
+						<div class="time"><span>07月05日 19:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">新增Ctrl+Enter快捷键发送广播。</div>
+						<div class="time"><span>07月05日 18:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">新增选择头像功能。</div>
+						<div class="time"><span>07月04日 15:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">增加了记录广播时间的功能。</div>
+						<div class="time"><span>07月03日 15:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">增加了输入字符检测功能，英文/半角为半个字符，汉字/全角为一个字符。</div>
+						<div class="time"><span>07月02日 15:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+				<li>
+					<div class="user-pic"><img src="images/10.jpg"></div>
+					<div class="content-sent">
+						<div class="username"><a href="javascript::">系统</a>:</div>
+						<div class="msg-info">仿腾讯微博效果，欢迎大家测试！</div>
+						<div class="time"><span>07月01日 15:14</span><a href="javascript::" class="del">删除</a></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="weibo.js"></script>
+</body>
+</html>
