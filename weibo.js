@@ -2,7 +2,7 @@
 * @Author: yanhoor
 * @Date:   2017-10-24 12:25:59
 * @Last Modified by:   yanhoor
-* @Last Modified time: 2017-10-26 11:00:36
+* @Last Modified time: 2017-10-26 16:35:55
 */
 window.onload = function(){
 	var weibo ={
@@ -79,7 +79,10 @@ window.onload = function(){
 	EventUtil.addHandler(sendBtn, "mouseout", function(){
 		event.target.classList.remove("hover");	
 	});
-	for(var i = 0; i < liList.length; i++){
+	mouseEventHandler();
+
+	function mouseEventHandler(){
+		for(var i = 0; i < liList.length; i++){
 		EventUtil.addHandler(liList[i], "mouseover", function(){
 			var currentLi = event.currentTarget
 			var currentUl = currentLi.parentNode;
@@ -88,9 +91,7 @@ window.onload = function(){
 			aList[1].style.display = "inline";
 			EventUtil.addHandler(aList[1], "mousedown", function(){
 				if (EventUtil.getButton(event) == 0) {
-					setTimeout(function(){
 					currentUl.removeChild(currentLi);
-				}, 400);
 				}
 			});
 		});
@@ -100,6 +101,7 @@ window.onload = function(){
 			var aList = currentLi.getElementsByTagName("a");
 			aList[1].style.display = "none";
 		});
+		}
 	}
 
 	function chooseFace(){
@@ -125,5 +127,6 @@ window.onload = function(){
 					"</div>";
 		li.innerHTML = contentHtml;
 		contentUl.insertBefore(li, contentUl.firstChild);
+		mouseEventHandler();
 	}
 };
