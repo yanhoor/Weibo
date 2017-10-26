@@ -2,7 +2,7 @@
 * @Author: yanhoor
 * @Date:   2017-10-24 12:25:59
 * @Last Modified by:   yanhoor
-* @Last Modified time: 2017-10-26 16:35:55
+* @Last Modified time: 2017-10-26 19:14:23
 */
 window.onload = function(){
 	var weibo ={
@@ -51,6 +51,14 @@ window.onload = function(){
 						return 1;
 				}
 			}
+		},
+
+		getCharCode: function(event){
+			if (typeof event.charCode == "number") {
+				return event.charCode;
+			}else{
+				return event.keyCode;
+			}
 		}
 
 	};
@@ -79,7 +87,14 @@ window.onload = function(){
 	EventUtil.addHandler(sendBtn, "mouseout", function(){
 		event.target.classList.remove("hover");	
 	});
+	EventUtil.addHandler(document.body, "keyup", quickKey);
 	mouseEventHandler();
+
+	function quickKey(){
+		if (event.ctrlKey && event.keyCode == 13) {
+			sendWeibo();
+		}
+	}
 
 	function mouseEventHandler(){
 		for(var i = 0; i < liList.length; i++){
