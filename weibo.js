@@ -2,7 +2,7 @@
 * @Author: yanhoor
 * @Date:   2017-10-24 12:25:59
 * @Last Modified by:   yanhoor
-* @Last Modified time: 2017-10-25 20:39:06
+* @Last Modified time: 2017-10-26 11:00:36
 */
 window.onload = function(){
 	var weibo ={
@@ -33,7 +33,7 @@ window.onload = function(){
 			}
 		},
 
-		getButton: function(evetn){
+		getButton: function(event){
 			if (document.implementation.hasFeature("MouseEvent", "2.0")) {
 				return event.button;
 			}else{
@@ -60,6 +60,7 @@ window.onload = function(){
 	var content = document.getElementById("contentBox");
 	var sendBtn = document.getElementById("sendBtn");
 	var ul = document.getElementById("contentUl");
+	var liList = ul.getElementsByTagName("li");
 
 	EventUtil.addHandler(userFace, "click", chooseFace);
 	EventUtil.addHandler(sendBtn, "click", sendWeibo);
@@ -75,6 +76,31 @@ window.onload = function(){
 	EventUtil.addHandler(sendBtn, "mouseout", function(){
 		event.target.classList.remove("hover");	
 	});
+	EventUtil.addHandler(sendBtn, "mouseout", function(){
+		event.target.classList.remove("hover");	
+	});
+	for(var i = 0; i < liList.length; i++){
+		EventUtil.addHandler(liList[i], "mouseover", function(){
+			var currentLi = event.currentTarget
+			var currentUl = currentLi.parentNode;
+			currentLi.classList.add("hover");
+			var aList = currentLi.getElementsByTagName("a");
+			aList[1].style.display = "inline";
+			EventUtil.addHandler(aList[1], "mousedown", function(){
+				if (EventUtil.getButton(event) == 0) {
+					setTimeout(function(){
+					currentUl.removeChild(currentLi);
+				}, 400);
+				}
+			});
+		});
+		EventUtil.addHandler(liList[i], "mouseout", function(){
+			var currentLi = event.currentTarget
+			currentLi.classList.remove("hover");
+			var aList = currentLi.getElementsByTagName("a");
+			aList[1].style.display = "none";
+		});
+	}
 
 	function chooseFace(){
 		var currentFace = document.getElementsByClassName("current");
